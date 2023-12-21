@@ -59,6 +59,10 @@ dependencies:
   flutter_svg: ^2.0.9
   # Responsive:
   flutter_screenutil: ^5.9.0
+  # helper library:
+  velocity_x: ^4.1.2
+  # Google Fonts
+  google_fonts: ^6.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
