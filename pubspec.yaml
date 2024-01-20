@@ -55,6 +55,15 @@ dependencies:
   easy_localization: ^3.0.3
   # for splash screen:
   flutter_native_splash: ^2.3.8
+  # An SVG flutter:
+  flutter_svg: ^2.0.9
+  # Responsive:
+  flutter_screenutil: ^5.9.0
+  # helper library:
+  velocity_x: ^4.1.2
+  # Google Fonts
+  google_fonts: ^6.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -78,8 +87,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
