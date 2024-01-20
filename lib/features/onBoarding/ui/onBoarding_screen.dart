@@ -26,7 +26,9 @@ class OnBoardingScreen extends StatelessWidget {
           const Spacer(),
           CustomMaterialButton(
             textButton: "Get Started",
-            onPressed: () {},
+            onPressed: () {
+
+            },
           ).px20()
         ],
       ).pOnly(top: 30.h, bottom: 50.h)),
