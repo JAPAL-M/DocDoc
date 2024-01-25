@@ -63,6 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 verticalSpacing(25),
+
                 Align(
                   alignment: AlignmentDirectional.centerEnd,
                   child: Text(
