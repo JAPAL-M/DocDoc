@@ -4,10 +4,12 @@ import 'package:velocity_x/velocity_x.dart';
 
 class CustomMaterialButton extends StatelessWidget {
   const CustomMaterialButton({
-    super.key, required this.textButton, required this.onPressed,
+    super.key,
+    required this.textButton,
+    required this.onPressed,
   });
-final String textButton;
-final Function() onPressed;
+  final String textButton;
+  final Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
@@ -18,7 +20,7 @@ final Function() onPressed;
       ),
       minWidth: double.infinity,
       height: 52.h,
-      child: textButton.text.white.bold.make(),
+      child: textButton.text.white.lg.bold.make(),
     );
   }
 }
