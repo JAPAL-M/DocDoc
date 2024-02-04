@@ -13,6 +13,8 @@ class CustomTextFormField extends StatelessWidget {
   final TextStyle? hintStyle;
   final TextStyle? style;
   final Widget? suffixIcon;
+  final TextEditingController? controller;
+  final Function(String?) validator;
   const CustomTextFormField(
       {super.key,
       this.isobscureText,
@@ -23,31 +25,52 @@ class CustomTextFormField extends StatelessWidget {
       required this.hintText,
       this.hintStyle,
       this.style,
-      this.suffixIcon});
+      this.suffixIcon,
+      this.controller,
+      required this.validator});
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       obscureText: isobscureText ?? false,
       style: style ?? TextStyles.font14DarkBlueMedium,
       decoration: InputDecoration(
-          contentPadding: contentPadding ??
-              EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
-          isDense: true,
-          filled: true,
-          fillColor: backgroundColor ?? ColorsManager.moreLightGray,
-          hintText: hintText,
-          hintStyle: hintStyle ?? TextStyles.font14LightGrayRegular,
-          enabledBorder: enabledBorder ??
-              OutlineInputBorder(
-                  borderSide: const BorderSide(
-                      color: ColorsManager.lightGray, width: 1),
-                  borderRadius: BorderRadius.circular(16)),
-          focusedBorder: focusedBorder ??
-              OutlineInputBorder(
-                  borderSide:
-                      const BorderSide(color: ColorsManager.mainBlue, width: 1),
-                  borderRadius: BorderRadius.circular(16)),
-          suffixIcon: suffixIcon),
+        contentPadding: contentPadding ??
+            EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+        isDense: true,
+        filled: true,
+        fillColor: backgroundColor ?? ColorsManager.moreLightGray,
+        hintText: hintText,
+        hintStyle: hintStyle ?? TextStyles.font14LightGrayRegular,
+        enabledBorder: enabledBorder ??
+            OutlineInputBorder(
+                borderSide:
+                    const BorderSide(color: ColorsManager.lightGray, width: 1),
+                borderRadius: BorderRadius.circular(16)),
+        focusedBorder: focusedBorder ??
+            OutlineInputBorder(
+                borderSide:
+                    const BorderSide(color: ColorsManager.mainBlue, width: 1),
+                borderRadius: BorderRadius.circular(16)),
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.red,
+            width: 1.3,
+          ),
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.red,
+            width: 1.3,
+          ),
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        suffixIcon: suffixIcon,
+      ),
+      validator: (value) {
+        return validator(value);
+      },
     );
   }
 }
