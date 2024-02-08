@@ -7,9 +7,10 @@ import 'package:flutter/material.dart';
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this._loginRepo) : super(const LoginState.initial());
   final LoginRepo _loginRepo;
-  void emitLoginState(LoginRequestBody loginRequestBody) async {
+  void emitLoginState() async {
     emit(const LoginState.loading());
-    final response = await _loginRepo.login(loginRequestBody);
+    final response = await _loginRepo.login(LoginRequestBody(
+        email: emailController.text, password: passwordController.text));
     response.when(success: (loginResponseBody) {
       emit(LoginState.success(loginResponseBody));
     }, failure: (error) {
