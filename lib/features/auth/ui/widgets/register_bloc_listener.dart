@@ -57,9 +57,9 @@ void showSuccessDialog(BuildContext context) {
         actions: <Widget>[
           TextButton(
             style: TextButton.styleFrom(
-              primary: Colors.white,
+              iconColor: Colors.white,
               backgroundColor: Colors.blue,
-              onSurface: Colors.grey,
+              surfaceTintColor: Colors.grey,
             ),
             onPressed: () {
               context.pushNamed(Routes.loginScreen);

@@ -1,3 +1,4 @@
+import 'package:docdoc_app/core/helper/cache_helper.dart';
 import 'package:docdoc_app/core/routing/app_router.dart';
 import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/core/theme/app_color.dart';
@@ -22,8 +23,16 @@ class MyApp extends StatelessWidget {
           fontFamily: GoogleFonts.inter().fontFamily,
         ),
         onGenerateRoute: appRouter.generateRoute,
-        initialRoute: Routes.onBoardingScreen,
+        initialRoute: intialRouteMethod(),
       ),
     );
+  }
+
+  String intialRouteMethod() {
+    return CacheHelper.getData(key: 'SkipOnBoarding') != null
+        ? CacheHelper.getData(key: 'token') != null
+            ? Routes.homeScreen
+            : Routes.loginScreen
+        : Routes.onBoardingScreen;
   }
 }

@@ -1,3 +1,4 @@
+import 'package:docdoc_app/core/helper/cache_helper.dart';
 import 'package:docdoc_app/core/helper/extension.dart';
 import 'package:docdoc_app/core/routing/routes.dart';
 import 'package:docdoc_app/core/theme/app_styles.dart';
@@ -26,8 +27,11 @@ class OnBoardingScreen extends StatelessWidget {
           ).px(30),
           const Spacer(),
           CustomMaterialButton(
+            minWight: double.infinity,
             textButton: "Get Started",
-            onPressed: () {
+            onPressed: () async {
+              await CacheHelper.saveData(key: 'SkipOnBoarding', value: true);
+              // ignore: use_build_context_synchronously
               context.pushNamed(Routes.loginScreen);
             },
           ).px20()
