@@ -1,3 +1,4 @@
+import 'package:docdoc_app/core/helper/cache_helper.dart';
 import 'package:docdoc_app/features/auth/data/login/models/login_request_body.dart';
 import 'package:docdoc_app/features/auth/data/login/repos/login_repo.dart';
 import 'login_state.dart';
@@ -12,6 +13,8 @@ class LoginCubit extends Cubit<LoginState> {
     final response = await _loginRepo.login(LoginRequestBody(
         email: emailController.text, password: passwordController.text));
     response.when(success: (loginResponseBody) {
+      CacheHelper.saveData(
+          key: 'token', value: loginResponseBody.userData!.token);
       emit(LoginState.success(loginResponseBody));
     }, failure: (error) {
       emit(LoginState.error(error: error.apiErrorModel.message ?? ""));

@@ -1,7 +1,6 @@
 import 'package:docdoc_app/core/helper/spacing.dart';
 import 'package:docdoc_app/core/theme/app_styles.dart';
 import 'package:docdoc_app/core/widgets/custom_material_button.dart';
-import 'package:docdoc_app/features/auth/data/login/models/login_request_body.dart';
 import 'package:docdoc_app/features/auth/logic/login_cubit/cubit/login_cubit.dart';
 import 'package:docdoc_app/features/auth/ui/widgets/already_have_account_text.dart';
 import 'package:docdoc_app/features/auth/ui/widgets/email_and_password.dart';
@@ -47,6 +46,7 @@ class LoginScreen extends StatelessWidget {
                 verticalSpacing(41),
                 CustomMaterialButton(
                     textButton: "Login",
+                    minWight: double.infinity,
                     onPressed: () {
                       validateThenDoLogin(context);
                     }),

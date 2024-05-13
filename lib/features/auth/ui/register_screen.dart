@@ -37,6 +37,7 @@ class RegisterScreen extends StatelessWidget {
               const RegisterForm(),
               verticalSpacing(32),
               CustomMaterialButton(
+                  minWight: double.infinity,
                   textButton: "Create Account",
                   onPressed: () {
                     validateThenDoSignup(context);
