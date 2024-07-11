@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:docdoc_app/core/helper/cache_helper.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -15,11 +16,25 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
+      addDioHeaders();
       addDioInterceptor();
       return dio!;
     } else {
       return dio!;
     }
+  }
+
+  static void addDioHeaders() async {
+    dio?.options.headers = {
+      "Accept": 'application/json',
+      "Authorization": 'Bearer ${await CacheHelper.getData(key: 'token')}',
+    };
+  }
+
+  static void setTokenIntoHeaderAfterLogin(String token) {
+    dio?.options.headers = {
+      'Authorization': 'Bearer $token',
+    };
   }
 
   static void addDioInterceptor() {

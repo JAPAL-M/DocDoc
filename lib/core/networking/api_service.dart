@@ -3,6 +3,7 @@ import 'package:docdoc_app/core/networking/api_constants.dart';
 import 'package:docdoc_app/features/auth/data/login/models/login_request_body.dart';
 import 'package:docdoc_app/features/auth/data/register/models/register_request_body.dart';
 import 'package:docdoc_app/features/auth/data/register/models/register_response_body.dart';
+import 'package:docdoc_app/features/home/data/models/home_models.dart';
 import 'package:retrofit/http.dart';
 
 import '../../features/auth/data/login/models/login_response_body.dart';
