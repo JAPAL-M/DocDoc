@@ -3,6 +3,7 @@ class ApiConstants {
 
   static const login = "auth/login";
   static const register = "auth/register";
+  static const home = "home/index";
 }
 
 class ApiErrors {

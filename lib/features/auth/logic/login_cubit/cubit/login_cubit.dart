@@ -1,4 +1,5 @@
 import 'package:docdoc_app/core/helper/cache_helper.dart';
+import 'package:docdoc_app/core/networking/dio_factory.dart';
 import 'package:docdoc_app/features/auth/data/login/models/login_request_body.dart';
 import 'package:docdoc_app/features/auth/data/login/repos/login_repo.dart';
 import 'login_state.dart';
@@ -12,9 +13,8 @@ class LoginCubit extends Cubit<LoginState> {
     emit(const LoginState.loading());
     final response = await _loginRepo.login(LoginRequestBody(
         email: emailController.text, password: passwordController.text));
-    response.when(success: (loginResponseBody) {
-      CacheHelper.saveData(
-          key: 'token', value: loginResponseBody.userData!.token);
+    response.when(success: (loginResponseBody) async {
+      await saveUserToken(loginResponseBody.userData?.token ?? '');
       emit(LoginState.success(loginResponseBody));
     }, failure: (error) {
       emit(LoginState.error(error: error.apiErrorModel.message ?? ""));
@@ -24,4 +24,9 @@ class LoginCubit extends Cubit<LoginState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+
+  Future<void> saveUserToken(String token) async {
+    await CacheHelper.saveData(key: 'token', value: token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
+  }
 }

@@ -5,6 +5,8 @@ import 'package:docdoc_app/features/auth/data/login/repos/login_repo.dart';
 import 'package:docdoc_app/features/auth/data/register/repos/register_repo.dart';
 import 'package:docdoc_app/features/auth/logic/login_cubit/cubit/login_cubit.dart';
 import 'package:docdoc_app/features/auth/logic/register_cubit/cubit/register_cubit.dart';
+import 'package:docdoc_app/features/home/data/apis/home_api_service.dart';
+import 'package:docdoc_app/features/home/data/repos/home_repos.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -16,8 +18,13 @@ void setupGetIt() {
 
   // Login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
-  getIt.registerLazySingleton<LoginCubit>(() => LoginCubit(getIt()));
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 
+  // Register
   getIt.registerLazySingleton<RegisterRepo>(() => RegisterRepo(getIt()));
-  getIt.registerLazySingleton<RegisterCubit>(() => RegisterCubit(getIt()));
+  getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
+
+  // Home
+  getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
+  getIt.registerLazySingleton<HomeRepos>(() => HomeRepos(getIt()));
 }
