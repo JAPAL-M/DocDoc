@@ -15,7 +15,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(const HomeState.homeLoading());
     final response = await _homeRepos.getHomeData();
     response.when(success: (homeModels) {
-      homeData = homeModels.data ?? [];
+      homeData = homeModels.data;
       getListDoctors(id: homeData.first.id!);
       emit(HomeState.homeSuccess(homeModels));
     }, failure: (error) {
