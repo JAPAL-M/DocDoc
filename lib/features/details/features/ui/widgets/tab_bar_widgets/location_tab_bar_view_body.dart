@@ -1,10 +1,11 @@
 import 'package:docdoc_app/core/helper/spacing.dart';
 import 'package:docdoc_app/core/theme/app_styles.dart';
+import 'package:docdoc_app/features/home/data/models/home_models.dart';
 import 'package:flutter/material.dart';
 
 class LocationTabBarViewBody extends StatelessWidget {
-  const LocationTabBarViewBody({super.key});
-
+  const LocationTabBarViewBody({super.key, required this.doctorData});
+  final DoctorData doctorData;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,7 +17,7 @@ class LocationTabBarViewBody extends StatelessWidget {
         ),
         verticalSpacing(12),
         Text(
-          'Cairo, Egypt',
+          doctorData.address!,
           style: TextStyles.font14GrayRegular,
         )
       ],

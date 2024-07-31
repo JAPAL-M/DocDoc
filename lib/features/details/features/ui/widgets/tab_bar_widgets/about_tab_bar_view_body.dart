@@ -1,12 +1,14 @@
 import 'package:docdoc_app/core/helper/spacing.dart';
 import 'package:docdoc_app/core/theme/app_styles.dart';
+import 'package:docdoc_app/features/home/data/models/home_models.dart';
 import 'package:flutter/material.dart';
 
 class AboutTabBarViewBody extends StatelessWidget {
   const AboutTabBarViewBody({
     super.key,
+    required this.doctorData,
   });
-
+  final DoctorData doctorData;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,7 +20,7 @@ class AboutTabBarViewBody extends StatelessWidget {
         ),
         verticalSpacing(12),
         Text(
-          'Dr. Jenny Watson is the top most Immunologists specialist in Christ Hospital at London. She achived several awards for her wonderful contribution in medical field. She is available for private consultation.',
+          doctorData.description!,
           style: TextStyles.font14GrayRegular,
         ),
         verticalSpacing(24),
@@ -28,32 +30,32 @@ class AboutTabBarViewBody extends StatelessWidget {
         ),
         verticalSpacing(12),
         Text(
-          'Monday - Friday, 08.00 AM - 20.00 PM',
+          '${doctorData.startTime!} - ${doctorData.endTime!}',
           style: TextStyles.font14GrayRegular,
         ),
         verticalSpacing(24),
         Text(
-          'STR',
+          'Phone Number',
           style: TextStyles.font16WhiteSemiBold.copyWith(color: Colors.black),
         ),
         verticalSpacing(12),
         Text(
-          '4726482464',
+          doctorData.phone!,
           style: TextStyles.font14GrayRegular,
         ),
         verticalSpacing(24),
         Text(
-          'Pengalaman Praktik',
+          'City',
           style: TextStyles.font16WhiteSemiBold.copyWith(color: Colors.black),
         ),
         verticalSpacing(12),
         Text(
-          'RSPAD Gatot Soebroto',
+          doctorData.city!.name!,
           style: TextStyles.font14DarkBlueMedium,
         ),
         verticalSpacing(4),
         Text(
-          '2017 - sekarang',
+          doctorData.degree!,
           style: TextStyles.font14GrayRegular,
         ),
       ],
