@@ -4,7 +4,6 @@ import 'package:docdoc_app/features/auth/logic/login_cubit/cubit/login_cubit.dar
 import 'package:docdoc_app/features/auth/logic/register_cubit/cubit/register_cubit.dart';
 import 'package:docdoc_app/features/auth/ui/login_screen.dart';
 import 'package:docdoc_app/features/auth/ui/register_screen.dart';
-import 'package:docdoc_app/features/details/features/ui/details_screen.dart';
 import 'package:docdoc_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:docdoc_app/features/home/ui/home_screen.dart';
 import 'package:docdoc_app/features/onBoarding/ui/onBoarding_screen.dart';
@@ -18,31 +17,33 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
       case Routes.loginScreen:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<LoginCubit>(),
-                  child: const LoginScreen(),
-                ));
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: const LoginScreen(),
+          ),
+        );
       case Routes.registerScreen:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<RegisterCubit>(),
-                  child: const RegisterScreen(),
-                ));
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<RegisterCubit>(),
+            child: const RegisterScreen(),
+          ),
+        );
       case Routes.homeScreen:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => HomeCubit(getIt())..getHomeData(),
-                  child: const HomeScreen(),
-                ));
-      case Routes.detailsScreen:
-        return MaterialPageRoute(builder: (_) => const DetailsScreen());
+          builder: (_) => BlocProvider(
+            create: (context) => HomeCubit(getIt())..getHomeData(),
+            child: const HomeScreen(),
+          ),
+        );
       default:
         return MaterialPageRoute(
-            builder: (_) => Scaffold(
-                  body: Center(
-                    child: Text("No route defined for ${settings.name}"),
-                  ),
-                ));
+          builder: (_) => Scaffold(
+            body: Center(
+              child: Text("No route defined for ${settings.name}"),
+            ),
+          ),
+        );
     }
   }
 }

@@ -6,13 +6,18 @@ import 'package:docdoc_app/features/details/features/ui/widgets/tab_bar_widgets/
 import 'package:docdoc_app/features/details/features/ui/widgets/tab_bar_widgets/location_tab_bar_view_body.dart';
 import 'package:docdoc_app/features/details/features/ui/widgets/tab_bar_widgets/reviews_tab_bar_view_body.dart';
 import 'package:docdoc_app/features/details/features/ui/widgets/tab_bar_widgets/tab_bar_details_screen.dart';
+import 'package:docdoc_app/features/home/data/models/home_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class DetailsScreen extends StatefulWidget {
-  const DetailsScreen({super.key});
+  const DetailsScreen({
+    super.key,
+    required this.doctorData,
+  });
 
+  final DoctorData doctorData;
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
 }
@@ -44,22 +49,24 @@ class _DetailsScreenState extends State<DetailsScreen>
       body: SafeArea(
         child: Column(
           children: [
-            const DetailsScreenAppBar(),
+            DetailsScreenAppBar(
+              doctorData: widget.doctorData,
+            ),
             verticalSpacing(32),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(
                 children: [
-                  const DoctorDetailsItems(),
+                  DoctorDetailsItems(doctorData: widget.doctorData),
                   verticalSpacing(24),
                   TabBarDetailsScreen(tabController: _tabController),
                   verticalSpacing(32),
                   TabBarView(
                     controller: _tabController,
-                    children: const [
-                      AboutTabBarViewBody(),
-                      LocationTabBarViewBody(),
-                      ReviewsTabBarViewBody(),
+                    children: [
+                      AboutTabBarViewBody(doctorData: widget.doctorData),
+                      LocationTabBarViewBody(doctorData: widget.doctorData),
+                      const ReviewsTabBarViewBody(),
                     ],
                   ).h(context.screenHeight * 0.5),
                 ],
