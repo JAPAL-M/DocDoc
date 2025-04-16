@@ -1,5 +1,7 @@
 class ApiConstants {
-  static const apiBaseUrl = "https://vcare.integration25.com/api/";
+  // static const apiBaseUrl = "https://vcare.integration25.com/api/";
+
+  static const apiBaseUrl = "http://10.0.2.2:4000/";
 
   static const login = "auth/login";
   static const register = "auth/register";

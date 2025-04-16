@@ -16,7 +16,7 @@ class HomeModels {
 
 @JsonSerializable()
 class HomeData {
-  final int? id;
+  final String? id;
   final String? name;
   final List<DoctorData> doctors;
 
@@ -28,7 +28,8 @@ class HomeData {
 
 @JsonSerializable()
 class DoctorData {
-  final int? id;
+  @JsonKey(name: '_id')
+  final String? id;
   final String? name;
   final String? email;
   final String? phone;
@@ -68,7 +69,8 @@ class DoctorData {
 
 @JsonSerializable()
 class Specialization {
-  final int? id;
+  @JsonKey(name: '_id')
+  final String? id;
   final String? name;
 
   Specialization(this.id, this.name);
@@ -79,7 +81,8 @@ class Specialization {
 
 @JsonSerializable()
 class CityDoctor {
-  final int? id;
+  @JsonKey(name: '_id')
+  final String? id;
   final String? name;
   final GovernrateCity? governrate;
   CityDoctor(this.id, this.name, this.governrate);
@@ -90,7 +93,8 @@ class CityDoctor {
 
 @JsonSerializable()
 class GovernrateCity {
-  final int? id;
+  @JsonKey(name: '_id')
+  final String? id;
   final String? name;
 
   GovernrateCity(this.id, this.name);

@@ -12,7 +12,7 @@ LoginResponseBody _$LoginResponseBodyFromJson(Map<String, dynamic> json) =>
       userData: json['data'] == null
           ? null
           : UserData.fromJson(json['data'] as Map<String, dynamic>),
-      code: json['code'] as int?,
+      code: (json['code'] as num?)?.toInt(),
       status: json['status'] as bool?,
     );
 

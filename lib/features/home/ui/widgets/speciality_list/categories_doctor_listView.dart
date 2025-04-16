@@ -30,8 +30,9 @@ class _CategoriesDoctorListViewState extends State<CategoriesDoctorListView> {
                 setState(() {
                   selectedSpecializationIndex = index;
                 });
-                context.read<HomeCubit>().getListDoctors(
-                    id: widget.homeModels.data[index].id!.toInt());
+                context
+                    .read<HomeCubit>()
+                    .getListDoctors(id: widget.homeModels.data[index].id!);
               },
               child: CategoriesDoctorItems(
                 specialization: widget.homeModels.data[index],

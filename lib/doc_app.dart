@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primaryColor: ColorsManager.mainBlue,
+          canvasColor: Colors.white,
           scaffoldBackgroundColor: Colors.white,
           fontFamily: GoogleFonts.inter().fontFamily,
         ),

@@ -1,4 +1,7 @@
+import 'package:docdoc_app/core/helper/extension.dart';
 import 'package:docdoc_app/core/helper/spacing.dart';
+import 'package:docdoc_app/core/routing/routes.dart';
+import 'package:docdoc_app/core/theme/app_color.dart';
 import 'package:docdoc_app/core/widgets/custom_material_button.dart';
 import 'package:docdoc_app/features/details/features/ui/widgets/details_screen_app_bar.dart';
 import 'package:docdoc_app/features/details/features/ui/widgets/doctor_details_items.dart';
@@ -9,6 +12,7 @@ import 'package:docdoc_app/features/details/features/ui/widgets/tab_bar_widgets/
 import 'package:docdoc_app/features/home/data/models/home_models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -42,10 +46,12 @@ class _DetailsScreenState extends State<DetailsScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CustomMaterialButton(
-              textButton: 'Make An Appointment',
-              minWight: double.infinity,
-              onPressed: () {})
-          .p(24),
+          textButton: 'Make An Appointment',
+          minWight: double.infinity,
+          onPressed: () {
+            context.pushNamed(Routes.appointmentScreen,
+                arguments: widget.doctorData);
+          }).p(24),
       body: SafeArea(
         child: Column(
           children: [
@@ -57,7 +63,17 @@ class _DetailsScreenState extends State<DetailsScreen>
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(
                 children: [
-                  DoctorDetailsItems(doctorData: widget.doctorData),
+                  Row(
+                    children: [
+                      DoctorDetailsItems(doctorData: widget.doctorData),
+                      const Spacer(),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Iconsax.message,
+                            color: ColorsManager.mainBlue),
+                      ),
+                    ],
+                  ),
                   verticalSpacing(24),
                   TabBarDetailsScreen(tabController: _tabController),
                   verticalSpacing(32),

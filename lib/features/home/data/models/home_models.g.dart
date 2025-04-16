@@ -12,7 +12,7 @@ HomeModels _$HomeModelsFromJson(Map<String, dynamic> json) => HomeModels(
           .map((e) => HomeData.fromJson(e as Map<String, dynamic>))
           .toList(),
       json['status'] as bool?,
-      json['code'] as int?,
+      (json['code'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$HomeModelsToJson(HomeModels instance) =>
@@ -24,7 +24,7 @@ Map<String, dynamic> _$HomeModelsToJson(HomeModels instance) =>
     };
 
 HomeData _$HomeDataFromJson(Map<String, dynamic> json) => HomeData(
-      json['id'] as int?,
+      json['id'] as String?,
       json['name'] as String?,
       (json['doctors'] as List<dynamic>)
           .map((e) => DoctorData.fromJson(e as Map<String, dynamic>))
@@ -38,7 +38,7 @@ Map<String, dynamic> _$HomeDataToJson(HomeData instance) => <String, dynamic>{
     };
 
 DoctorData _$DoctorDataFromJson(Map<String, dynamic> json) => DoctorData(
-      json['id'] as int?,
+      json['_id'] as String?,
       json['name'] as String?,
       json['email'] as String?,
       json['phone'] as String?,
@@ -54,14 +54,14 @@ DoctorData _$DoctorDataFromJson(Map<String, dynamic> json) => DoctorData(
       json['city'] == null
           ? null
           : CityDoctor.fromJson(json['city'] as Map<String, dynamic>),
-      json['appoint_price'] as int?,
+      (json['appoint_price'] as num?)?.toInt(),
       json['start_time'] as String?,
       json['end_time'] as String?,
     );
 
 Map<String, dynamic> _$DoctorDataToJson(DoctorData instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'name': instance.name,
       'email': instance.email,
       'phone': instance.phone,
@@ -79,18 +79,18 @@ Map<String, dynamic> _$DoctorDataToJson(DoctorData instance) =>
 
 Specialization _$SpecializationFromJson(Map<String, dynamic> json) =>
     Specialization(
-      json['id'] as int?,
+      json['_id'] as String?,
       json['name'] as String?,
     );
 
 Map<String, dynamic> _$SpecializationToJson(Specialization instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'name': instance.name,
     };
 
 CityDoctor _$CityDoctorFromJson(Map<String, dynamic> json) => CityDoctor(
-      json['id'] as int?,
+      json['_id'] as String?,
       json['name'] as String?,
       json['governrate'] == null
           ? null
@@ -99,19 +99,19 @@ CityDoctor _$CityDoctorFromJson(Map<String, dynamic> json) => CityDoctor(
 
 Map<String, dynamic> _$CityDoctorToJson(CityDoctor instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'name': instance.name,
       'governrate': instance.governrate,
     };
 
 GovernrateCity _$GovernrateCityFromJson(Map<String, dynamic> json) =>
     GovernrateCity(
-      json['id'] as int?,
+      json['_id'] as String?,
       json['name'] as String?,
     );
 
 Map<String, dynamic> _$GovernrateCityToJson(GovernrateCity instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'name': instance.name,
     };

@@ -11,8 +11,10 @@ class HomeRepos {
   Future<ApiResult<HomeModels>> getHomeData() async {
     try {
       final response = await _homeApiService.getHome();
+      print("response: $response");
       return ApiResult.success(response);
     } catch (error) {
+      print("error: $error");
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }

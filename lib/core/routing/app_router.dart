@@ -1,9 +1,12 @@
 import 'package:docdoc_app/core/di/dependency_injection.dart';
 import 'package:docdoc_app/core/routing/routes.dart';
+import 'package:docdoc_app/features/appointment/logic/cubit/appointment_cubit.dart';
+import 'package:docdoc_app/features/appointment/ui/appointment_screen.dart';
 import 'package:docdoc_app/features/auth/logic/login_cubit/cubit/login_cubit.dart';
 import 'package:docdoc_app/features/auth/logic/register_cubit/cubit/register_cubit.dart';
 import 'package:docdoc_app/features/auth/ui/login_screen.dart';
 import 'package:docdoc_app/features/auth/ui/register_screen.dart';
+import 'package:docdoc_app/features/home/data/models/home_models.dart';
 import 'package:docdoc_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:docdoc_app/features/home/ui/home_screen.dart';
 import 'package:docdoc_app/features/onBoarding/ui/onBoarding_screen.dart';
@@ -34,6 +37,16 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => HomeCubit(getIt())..getHomeData(),
             child: const HomeScreen(),
+          ),
+        );
+      case Routes.appointmentScreen:
+        var arguments = settings.arguments as DoctorData;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => AppointmentCubit(),
+            child: AppointmentScreen(
+              doctorData: arguments,
+            ),
           ),
         );
       default:
