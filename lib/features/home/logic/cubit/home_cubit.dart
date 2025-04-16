@@ -24,7 +24,7 @@ class HomeCubit extends Cubit<HomeState> {
     });
   }
 
-  void getListDoctors({required int id}) {
+  void getListDoctors({required String id}) {
     emit(const HomeState.getListDoctorsLoading());
     List<DoctorData> doctors = getDoctorsListBySpecializationId(id);
 

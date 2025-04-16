@@ -12,7 +12,7 @@ part of 'home_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$HomeState {
@@ -103,6 +103,9 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -119,6 +122,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -253,6 +259,9 @@ class __$$HomeLoadingImplCopyWithImpl<$Res>
   __$$HomeLoadingImplCopyWithImpl(
       _$HomeLoadingImpl _value, $Res Function(_$HomeLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -390,6 +399,8 @@ class __$$HomeSuccessImplCopyWithImpl<$Res>
       _$HomeSuccessImpl _value, $Res Function(_$HomeSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -429,7 +440,9 @@ class _$HomeSuccessImpl implements HomeSuccess {
   @override
   int get hashCode => Object.hash(runtimeType, homeModels);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HomeSuccessImplCopyWith<_$HomeSuccessImpl> get copyWith =>
@@ -534,7 +547,10 @@ abstract class HomeSuccess implements HomeState {
   const factory HomeSuccess(final HomeModels homeModels) = _$HomeSuccessImpl;
 
   HomeModels get homeModels;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HomeSuccessImplCopyWith<_$HomeSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -556,6 +572,8 @@ class __$$HomeErrorImplCopyWithImpl<$Res>
       _$HomeErrorImpl _value, $Res Function(_$HomeErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -594,7 +612,9 @@ class _$HomeErrorImpl implements HomeError {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HomeErrorImplCopyWith<_$HomeErrorImpl> get copyWith =>
@@ -699,7 +719,10 @@ abstract class HomeError implements HomeState {
   const factory HomeError({required final String error}) = _$HomeErrorImpl;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HomeErrorImplCopyWith<_$HomeErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -719,6 +742,9 @@ class __$$GetListDoctorsLoadingImplCopyWithImpl<$Res>
   __$$GetListDoctorsLoadingImplCopyWithImpl(_$GetListDoctorsLoadingImpl _value,
       $Res Function(_$GetListDoctorsLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -858,6 +884,8 @@ class __$$GetListDoctorsSuccessImplCopyWithImpl<$Res>
       $Res Function(_$GetListDoctorsSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -903,7 +931,9 @@ class _$GetListDoctorsSuccessImpl implements GetListDoctorsSuccess {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_doctor));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetListDoctorsSuccessImplCopyWith<_$GetListDoctorsSuccessImpl>
@@ -1010,7 +1040,10 @@ abstract class GetListDoctorsSuccess implements HomeState {
       _$GetListDoctorsSuccessImpl;
 
   List<DoctorData> get doctor;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetListDoctorsSuccessImplCopyWith<_$GetListDoctorsSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1032,6 +1065,8 @@ class __$$GetListDoctorsErrorImplCopyWithImpl<$Res>
       $Res Function(_$GetListDoctorsErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1071,7 +1106,9 @@ class _$GetListDoctorsErrorImpl implements GetListDoctorsError {
   @override
   int get hashCode => Object.hash(runtimeType, errorHandler);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetListDoctorsErrorImplCopyWith<_$GetListDoctorsErrorImpl> get copyWith =>
@@ -1178,7 +1215,10 @@ abstract class GetListDoctorsError implements HomeState {
       _$GetListDoctorsErrorImpl;
 
   ErrorHandler get errorHandler;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetListDoctorsErrorImplCopyWith<_$GetListDoctorsErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

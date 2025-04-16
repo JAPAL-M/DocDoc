@@ -13,7 +13,7 @@ RegisterRequestBody _$RegisterRequestBodyFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       phone: json['phone'] as String,
       passwordConfirmation: json['password_confirmation'] as String,
-      gender: json['gender'] as int,
+      gender: (json['gender'] as num).toInt(),
     );
 
 Map<String, dynamic> _$RegisterRequestBodyToJson(
